@@ -34,7 +34,7 @@ Plataforma web interactiva para la consulta, análisis dogmático, seguimiento n
 ```text
 Ecologia-Sistema/
 │
-├── Proyecto.html         # Página principal y estructura de la aplicación
+├── index.html            # Página principal y estructura de la aplicación
 ├── README.md             # Documentación del sistema
 ├── .gitignore            # Exclusiones de control de versiones
 │
@@ -62,7 +62,7 @@ No requiere la instalación de servidores complejos ni dependencias de backend. 
    ```
 
 2. **Abrir la aplicación:**
-   - Haz doble clic en el archivo `Proyecto.html` para abrirlo en cualquier navegador moderno (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, etc.).
+   - Haz doble clic en el archivo `index.html` para abrirlo en cualquier navegador moderno (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, etc.).
    - O utiliza una extensión como **Live Server** en Visual Studio Code.
 
 ---
