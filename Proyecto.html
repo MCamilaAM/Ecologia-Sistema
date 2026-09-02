@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución de la Legislación Ambiental en Colombia | Sistema de Consulta Normativa</title>
+    
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Chart.js CDN for Environmental Data Visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Natural Light Botanical Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Main Application Container -->
+    <div class="app-container">
+
+        <!-- Header / Navigation Bar -->
+        <header class="header-editorial">
+            <div class="brand-meta-wrap">
+                <div class="brand-leaf-icon">
+                    <i data-lucide="globe-2" style="width: 24px; height: 24px;"></i>
+                </div>
+                <div class="brand-meta-text">
+                    <h1>Legislación Ambiental</h1>
+                    <span>República de Colombia • Marco Normativo</span>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs-editorial" aria-label="Navegación principal">
+                <button class="nav-tab-btn active" data-view="leyes">
+                    <i data-lucide="book-open" style="width: 16px; height: 16px;"></i>
+                    <span>Leyes</span>
+                </button>
+                <button class="nav-tab-btn" data-view="metricas">
+                    <i data-lucide="bar-chart-3" style="width: 16px; height: 16px;"></i>
+                    <span>Gráficas Ambientales</span>
+                </button>
+                <button class="nav-tab-btn" data-view="articulos">
+                    <i data-lucide="file-text" style="width: 16px; height: 16px;"></i>
+                    <span>Articulado</span>
+                </button>
+                <button class="nav-tab-btn" data-view="calculador">
+                    <i data-lucide="gavel" style="width: 16px; height: 16px;"></i>
+                    <span>Delitos (Ley 2111)</span>
+                </button>
+                <button class="nav-tab-btn" data-view="evolucion">
+                    <i data-lucide="git-branch" style="width: 16px; height: 16px;"></i>
+                    <span>Evolución (1974-2025)</span>
+                </button>
+                <button class="nav-tab-btn" data-view="faq">
+                    <i data-lucide="help-circle" style="width: 16px; height: 16px;"></i>
+                    <span>Casos Prácticos</span>
+                </button>
+                <button class="nav-tab-btn" data-view="favoritos">
+                    <i data-lucide="bookmark" style="width: 16px; height: 16px;"></i>
+                    <span>Favoritos</span>
+                </button>
+            </nav>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <button class="btn-icon-action" id="fontSizeBtn" title="Ajustar tamaño de fuente">
+                    <i data-lucide="type" style="width: 18px; height: 18px;"></i>
+                </button>
+                <button class="btn-icon-action" id="printPageBtn" title="Imprimir / Exportar a PDF">
+                    <i data-lucide="printer" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- ==============================================
+             HERO BANNER - EDITORIAL BOTÁNICO CLARO
+             ============================================== -->
+        <section class="hero-editorial-card">
+            <div class="hero-left-content">
+                <!-- Academic & Institutional Badge -->
+                <div class="hero-academic-header">
+                    <div class="academic-badge-logo">
+                        <i data-lucide="sprout" style="width: 22px; height: 22px;"></i>
+                        <span>Derecho y Gestión Ecológica en Colombia</span>
+                    </div>
+                </div>
+
+                <!-- Main Display Titles -->
+                <h1 class="hero-main-title">Evolución de la<br>Legislación<br>Ambiental</h1>
+                <div class="hero-main-subtitle">En Colombia</div>
+
+                <p class="hero-desc-text">
+                    Sistema integral de consulta, análisis dogmático y seguimiento de indicadores ecológicos de las 6 normas estructurantes del país: desde el Código de Recursos Naturales de 1974 hasta la Ley de Ciudades Verdes de 2025.
+                </p>
+            </div>
+
+            <!-- Right Visuals (Biosphere 3D Ecosystem Render) -->
+            <div class="hero-visual-wrap">
+                <img src="assets/images/hero_globe.jpg" alt="Ecosistema Biosfera Colombia" class="biosphere-hero-img">
+            </div>
+        </section>
+
+        <!-- Quick Access Strip for 6 Laws -->
+        <div class="laws-quick-strip" style="margin-bottom: 32px;">
+            <button class="law-quick-btn" data-law="decreto-2811-1974">
+                <span class="btn-num">Dec. 2811 (1974)</span>
+                <span class="btn-name">Código Rec. Naturales</span>
+            </button>
+            <button class="law-quick-btn" data-law="ley-99-1993">
+                <span class="btn-num">Ley 99 (1993)</span>
+                <span class="btn-name">Creación del SINA</span>
+            </button>
+            <button class="law-quick-btn" data-law="ley-165-1994">
+                <span class="btn-num">Ley 165 (1994)</span>
+                <span class="btn-name">Biodiversidad (CDB)</span>
+            </button>
+            <button class="law-quick-btn" data-law="ley-1931-2018">
+                <span class="btn-num">Ley 1931 (2018)</span>
+                <span class="btn-name">Cambio Climático</span>
+            </button>
+            <button class="law-quick-btn" data-law="ley-2111-2021">
+                <span class="btn-num">Ley 2111 (2021)</span>
+                <span class="btn-name">Delitos Ambientales</span>
+            </button>
+            <button class="law-quick-btn" data-law="ley-2476-2025">
+                <span class="btn-num">Ley 2476 (2025)</span>
+                <span class="btn-name">Ciudades Verdes & SbN</span>
+            </button>
+        </div>
+
+        <!-- Search and Categorization Box -->
+        <section class="search-section-box">
+            <div class="search-bar-wrap">
+                <div class="search-bar-icon">
+                    <i data-lucide="search" style="width: 22px; height: 22px;"></i>
+                </div>
+                <input 
+                    type="text" 
+                    id="mainSearchInput" 
+                    class="search-bar-input" 
+                    placeholder="Buscar por artículo, tema (ej: deforestación, humedales, SINA, SbN, precaución, CAR)..." 
+                    autocomplete="off"
+                >
+                <button id="searchClearBtn" class="search-btn-clear" title="Limpiar búsqueda">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+                <button id="searchSubmitBtn" class="search-btn-submit">
+                    <span>Buscar</span>
+                </button>
+            </div>
+
+            <div class="category-chips-row" id="categoryTags">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ==============================================
+             VISTA 1: CATÁLOGO DE LEYES (FOTOGRAFÍAS ÚNICAS)
+             ============================================== -->
+        <section id="view-leyes" class="view-section active">
+            <div class="view-header-strip">
+                <h2 class="view-header-title">
+                    <i data-lucide="book-marked" style="color: var(--primary-forest);"></i>
+                    <span>Normas Ambientales Estructurantes</span>
+                </h2>
+                <span class="view-badge-counter">6 Leyes y Decretos</span>
+            </div>
+
+            <div class="laws-cards-grid" id="lawsGrid">
+                <!-- Rendered dynamically from JS with distinct photos -->
+            </div>
+        </section>
+
+        <!-- ==============================================
+             VISTA 2: PANEL DE MÉTRICAS & GRÁFICAS AMBIENTALES (CHART.JS)
+             ============================================== -->
+        <section id="view-metricas" class="view-section">
+            <div class="view-header-strip">
+                <h2 class="view-header-title">
+                    <i data-lucide="bar-chart-2" style="color: var(--primary-forest);"></i>
+                    <span>Panel de Indicadores y Gráficas Ambientales de Colombia</span>
+                </h2>
+                <span class="view-badge-counter">Datos & Evidencia</span>
+            </div>
+
+            <!-- 4 Environmental Charts Grid -->
+            <div class="charts-grid-layout">
+                <!-- Chart 1: Deforestation -->
+                <div class="chart-card-box">
+                    <div class="chart-card-header">
+                        <span class="chart-law-badge">Ley 2111 de 2021 & Ley 1931</span>
+                        <h3 class="chart-card-title">Evolución de la Deforestación (Hectáreas / Año)</h3>
+                        <p class="chart-card-sub">Impacto de la tipificación penal sin excarcelabilidad y camino a la meta 2030</p>
+                    </div>
+                    <div class="chart-canvas-container">
+                        <canvas id="chartDeforestacion"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Urban Green Space -->
+                <div class="chart-card-box">
+                    <div class="chart-card-header">
+                        <span class="chart-law-badge">Ley 2476 de 2025 (Ciudades Verdes)</span>
+                        <h3 class="chart-card-title">Espacio Verde Urbano vs. Meta Legal Obligatoria</h3>
+                        <p class="chart-card-sub">Metros cuadrados efectivos por habitante (Meta: 15 m²/hab)</p>
+                    </div>
+                    <div class="chart-canvas-container">
+                        <canvas id="chartEspacioVerde"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Protected Areas Growth -->
+                <div class="chart-card-box">
+                    <div class="chart-card-header">
+                        <span class="chart-law-badge">Ley 165 de 1994 (CDB) & Ley 99</span>
+                        <h3 class="chart-card-title">Superficie de Áreas Protegidas del SINAP</h3>
+                        <p class="chart-card-sub">Millones de hectáreas terrestres y marinas protegidas (1994 - 2026)</p>
+                    </div>
+                    <div class="chart-canvas-container">
+                        <canvas id="chartAreasProtegidas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 4: GHG Emissions by Sector -->
+                <div class="chart-card-box">
+                    <div class="chart-card-header">
+                        <span class="chart-law-badge">Ley 1931 de 2018 (SISCLIMA)</span>
+                        <h3 class="chart-card-title">Emisiones de Gases de Efecto Invernadero (GEI)</h3>
+                        <p class="chart-card-sub">Distribución porcentual por sectores prioritarios en Colombia</p>
+                    </div>
+                    <div class="chart-canvas-container">
+                        <canvas id="chartEmisionesGEI"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Indicators Highlights Banner -->
+            <div class="metrics-highlight-banner">
+                <div class="metric-stat-item">
+                    <div class="metric-stat-value">340</div>
+                    <div class="metric-stat-title">Artículos Fundacionales</div>
+                    <div class="metric-stat-desc">Decreto Ley 2811 de 1974</div>
+                </div>
+                <div class="metric-stat-item">
+                    <div class="metric-stat-value">33 CAR</div>
+                    <div class="metric-stat-title">Autoridades Regionales</div>
+                    <div class="metric-stat-desc">Sistema Nacional Ambiental SINA</div>
+                </div>
+                <div class="metric-stat-item">
+                    <div class="metric-stat-value">53.8 M ha</div>
+                    <div class="metric-stat-title">Áreas en Conservación</div>
+                    <div class="metric-stat-desc">Compromiso CDB Kunming-Montreal</div>
+                </div>
+                <div class="metric-stat-item">
+                    <div class="metric-stat-value">15 m²/hab</div>
+                    <div class="metric-stat-title">Meta Espacio Verde</div>
+                    <div class="metric-stat-desc">Ley de Ciudades Verdes 2025</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             VISTA 3: EXPLORADOR DE ARTÍCULOS DETALLADO
+             ============================================== -->
+        <section id="view-articulos" class="view-section">
+            <div class="view-header-strip">
+                <h2 class="view-header-title">
+                    <i data-lucide="file-search" style="color: var(--primary-forest);"></i>
+                    <span>Explorador de Articulado y Análisis Jurídico</span>
+                </h2>
+                <span class="view-badge-counter" id="articlesResultsCount">Cargando...</span>
+            </div>
+
+            <div class="articles-cards-list" id="articlesResultsList">
+                <!-- Rendered dynamically from JS -->
+            </div>
+        </section>
+
+        <!-- ==============================================
+             VISTA 4: CALCULADOR DE DELITOS (LEY 2111)
+             ============================================== -->
+        <section id="view-calculador" class="view-section">
+            <div class="view-header-strip">
+                <h2 class="view-header-title">
+                    <i data-lucide="scale" style="color: var(--primary-forest);"></i>
+                    <span>Tasador Punitivo de Delitos Ambientales (Ley 2111 de 2021)</span>
+                </h2>
+                <span class="view-badge-counter">Código Penal Colombiano</span>
+            </div>
+
+            <div class="crime-calc-container">
+                <div class="crime-config-box">
+                    <div style="margin-bottom: 20px;">
+                        <label class="form-label-editorial" for="calcCrimeSelect">Seleccionar Tipo Penal:</label>
+                        <select id="calcCrimeSelect" class="select-editorial-input">
+                            <!-- Injected by JS -->
+                        </select>
+                    </div>
+
+                    <div style="background: var(--bg-subtle); padding: 16px; border-radius: var(--radius-md); margin-bottom: 20px; border-left: 4px solid var(--accent-terracotta);">
+                        <div style="font-size: 0.78rem; text-transform: uppercase; color: var(--accent-terracotta); font-weight: 800; margin-bottom: 4px;">Conducta Tipificada:</div>
+                        <p id="calcConductDesc" style="font-size: 0.9rem; color: var(--text-primary); line-height: 1.45;"></p>
+                    </div>
+
+                    <div>
+                        <label class="form-label-editorial">Circunstancias de Agravación Punitiva:</label>
+                        <div class="crime-agravantes-stack" id="calcAgravantesList">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crime-result-box">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span class="article-norm-pill" style="background: #FEE2E2; color: #991B1B;">
+                                <i data-lucide="shield-alert" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i> Tipicidad Penal
+                            </span>
+                            <span id="calcArtBadge" style="font-size: 0.9rem; color: var(--text-muted); font-weight: 700;">Art. 330 C.P.</span>
+                        </div>
+
+                        <div class="non-bailable-tag">
+                            <i data-lucide="lock" style="width: 16px; height: 16px;"></i>
+                            <span>Delito Inexcarcelable (Sin suspensión condicional de la pena)</span>
+                        </div>
+
+                        <div class="crime-penalty-card">
+                            <div class="crime-penalty-title">
+                                <i data-lucide="hourglass" style="width: 16px; height: 16px;"></i>
+                                <span>Pena de Prisión Tasada</span>
+                            </div>
+                            <div class="crime-penalty-value" id="calcPenaOutput">60 a 144 meses</div>
+                        </div>
+
+                        <div class="crime-multa-card">
+                            <div class="crime-multa-title">
+                                <i data-lucide="coins" style="width: 16px; height: 16px;"></i>
+                                <span>Multa Económica</span>
+                            </div>
+                            <div class="crime-multa-value" id="calcMultaOutput">134 a 50.000 SMLMV</div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-md); margin-top: 14px;">
+                        <strong style="color: var(--primary-forest); font-size: 0.82rem; display: block; margin-bottom: 4px;">Medidas Cautelares & Comiso Definitivo:</strong>
+                        <p id="calcCautelarDesc" style="font-size: 0.85rem; color: var(--text-body); line-height: 1.4;"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             VISTA 5: LÍNEA DE TIEMPO EVOLUTIVA
+             ============================================== -->
+        <section id="view-evolucion" class="view-section">
+            <div class="view-header-strip">
+                <h2 class="view-header-title">
+                    <i data-lucide="history" style="color: var(--primary-forest);"></i>
+                    <span>Evolución Histórica del Derecho Ambiental en Colombia (1974 - 2025)</span>
+                </h2>
+                <span class="view-badge-counter">Medio Siglo</span>
+            </div>
+
+            <div class="timeline-editorial-wrap" id="timelineContainer">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ==============================================
+             VISTA 6: CASOS PRÁCTICOS & FAQ
+             ============================================== -->
+        <section id="view-faq" class="view-section">
+            <div class="view-header-strip">
+                <h2 class="view-header-title">
+                    <i data-lucide="sparkles" style="color: var(--primary-forest);"></i>
+                    <span>Casos Prácticos & Consultas Frecuentes</span>
+                </h2>
+                <span class="view-badge-counter">Guía Jurídica</span>
+            </div>
+
+            <div class="faq-editorial-grid" id="faqContainer">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ==============================================
+             VISTA 7: FAVORITOS
+             ============================================== -->
+        <section id="view-favoritos" class="view-section">
+            <div class="view-header-strip">
+                <h2 class="view-header-title">
+                    <i data-lucide="bookmark-check" style="color: var(--accent-amber);"></i>
+                    <span>Elementos Guardados en Favoritos</span>
+                </h2>
+                <span class="view-badge-counter">Acceso Rápido</span>
+            </div>
+
+            <div class="laws-cards-grid" id="favoritesGrid">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Academic & Legal Footer -->
+        <footer class="app-footer-editorial">
+            <p><strong>Sistema de Consulta y Análisis de la Legislación Ambiental de Colombia</strong></p>
+            <p style="margin-top: 6px; font-size: 0.82rem; color: var(--text-dim);">Compilación Normativa: Decreto Ley 2811 de 1974, Ley 99 de 1993, Ley 165 de 1994, Ley 1931 de 2018, Ley 2111 de 2021 y Ley 2476 de 2025.</p>
+            <p style="margin-top: 6px; font-size: 0.82rem; color: var(--text-dim);">Hecho por: María Camila Angulo Martínez, Juan Ángel Chamorro Puello y Alejandro José Vergara Parra.</p>
+
+        </footer>
+
+    </div>
+
+    <!-- Modal de Ley Completa -->
+    <div class="modal-backdrop" id="lawModal" role="dialog" aria-modal="true">
+        <div class="modal-content-editorial">
+            <button class="modal-close-btn" id="modalCloseBtn" title="Cerrar ventana">
+                <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+            </button>
+            <div id="modalContentBody">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/normativa-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
